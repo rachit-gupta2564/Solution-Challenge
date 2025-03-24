@@ -45,7 +45,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
   ];
 
   bool _isPasswordVisible = false;
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   DateTime? _selectedDate;
   int? _age;
@@ -348,6 +348,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             height: 12,
                           ),
                           DropdownButtonFormField(
+                            value: _selectedValue,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(100),
