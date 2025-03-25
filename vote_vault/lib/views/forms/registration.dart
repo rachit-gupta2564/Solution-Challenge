@@ -1,8 +1,11 @@
 // import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:vote_vault/views/forms/login.dart';
+// import 'package:vote_vault/views/screens/home_screen.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
@@ -12,6 +15,8 @@ class RegistrationForm extends StatefulWidget {
 }
 
 class _RegistrationFormState extends State<RegistrationForm> {
+  final _formKey = GlobalKey<FormState>();
+
   String? _selectedValue;
   List<String> states = [
     'Andhra Pradesh',
@@ -98,6 +103,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
             top: 20,
           ),
           child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 Padding(
@@ -110,24 +116,30 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                       fontFamily: GoogleFonts.outfit().fontFamily,
-                      color: Color(0xFF00a878),
+                      color: const Color(0xFF00a878),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 15,
-                    vertical: 50,
+                    vertical: 40,
                   ),
                   child: Container(
                     width: 500,
-                    height: 780,
+                    height: 630,
                     decoration: BoxDecoration(
                       color: Color(0xFF00a878),
                       borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF00a878),
+                          blurRadius: 30,
+                        )
+                      ],
                     ),
                     child: Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         top: 20,
                         bottom: 20,
                         left: 20,
@@ -155,15 +167,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
-                                vertical: 18,
+                                vertical: 10,
                               ),
-                              fillColor: Color.fromARGB(111, 103, 241, 202),
+                              fillColor:
+                                  const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
                           TextFormField(
@@ -186,15 +199,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
-                                vertical: 18,
+                                vertical: 10,
                               ),
-                              fillColor: Color.fromARGB(111, 103, 241, 202),
+                              fillColor:
+                                  const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
                           TextFormField(
@@ -215,11 +229,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
-                                vertical: 18,
+                                vertical: 10,
                               ),
-                              fillColor: Color.fromARGB(111, 103, 241, 202),
+                              fillColor:
+                                  const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                             ),
                             readOnly: true,
@@ -245,7 +260,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               }
                             },
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
                           TextFormField(
@@ -267,15 +282,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
-                                vertical: 18,
+                                vertical: 10,
                               ),
-                              fillColor: Color.fromARGB(111, 103, 241, 202),
+                              fillColor:
+                                  const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
                           TextFormField(
@@ -299,19 +315,20 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
-                                vertical: 18,
+                                vertical: 10,
                               ),
-                              fillColor: Color.fromARGB(111, 103, 241, 202),
+                              fillColor:
+                                  const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
                           SizedBox(
-                            height: 150,
+                            height: 100,
                             child: TextFormField(
                               keyboardType: TextInputType.multiline,
                               expands: true,
@@ -335,16 +352,17 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: BorderSide.none,
                                 ),
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                   horizontal: 20,
-                                  vertical: 18,
+                                  vertical: 10,
                                 ),
-                                fillColor: Color.fromARGB(111, 103, 241, 202),
+                                fillColor:
+                                    const Color.fromARGB(111, 103, 241, 202),
                                 filled: true,
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
                           DropdownButtonFormField(
@@ -354,11 +372,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
-                                vertical: 18,
+                                vertical: 10,
                               ),
-                              fillColor: Color.fromARGB(111, 103, 241, 202),
+                              fillColor:
+                                  const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                             ),
                             hint: Text(
@@ -384,7 +403,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               });
                             },
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
                           TextFormField(
@@ -403,7 +422,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             obscuringCharacter: "*",
                             decoration: InputDecoration(
                               hintStyle: TextStyle(
-                                color: Colors.white,
+                                color: const Color.fromARGB(255, 255, 255, 255),
                                 fontFamily: GoogleFonts.outfit().fontFamily,
                               ),
                               // prefixIcon: Icon(CupertinoIcons.home),
@@ -412,11 +431,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
-                                vertical: 18,
+                                vertical: 10,
                               ),
-                              fillColor: Color.fromARGB(111, 103, 241, 202),
+                              fillColor:
+                                  const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                               suffixIcon: IconButton(
                                 onPressed: () {
@@ -457,11 +477,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
-                                vertical: 18,
+                                vertical: 10,
                               ),
-                              fillColor: Color.fromARGB(111, 103, 241, 202),
+                              fillColor:
+                                  const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                               suffixIcon: IconButton(
                                 onPressed: () {
@@ -478,6 +499,43 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             ),
                           ),
                         ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 10,
+                  ),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 5,
+                      backgroundColor: const Color.fromARGB(255, 0, 168, 120),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 50,
+                        vertical: 10,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      shadowColor: const Color.fromARGB(255, 0, 168, 120),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.push(context,
+                            CupertinoPageRoute(builder: (context) => Login()));
+                      }
+                      // Navigator.push(
+                      //     context,
+                      //     CupertinoPageRoute(
+                      //         builder: (context) => HomeScreen()));
+                    },
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: GoogleFonts.outfit().fontFamily,
+                        color: const Color.fromARGB(255, 255, 255, 255),
                       ),
                     ),
                   ),
