@@ -127,7 +127,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                   child: Container(
                     width: 500,
-                    height: 630,
+                    // height: 630,
                     decoration: BoxDecoration(
                       color: Color(0xFF00a878),
                       borderRadius: BorderRadius.circular(30),
@@ -419,7 +419,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               }
                               return null;
                             },
-                            obscuringCharacter: "*",
                             decoration: InputDecoration(
                               hintStyle: TextStyle(
                                 color: const Color.fromARGB(255, 255, 255, 255),
@@ -465,7 +464,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               }
                               return null;
                             },
-                            obscuringCharacter: "*",
                             decoration: InputDecoration(
                               hintStyle: TextStyle(
                                 color: Colors.white,
