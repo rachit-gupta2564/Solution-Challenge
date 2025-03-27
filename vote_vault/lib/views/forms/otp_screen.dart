@@ -13,26 +13,36 @@ class _OTPScreenState extends State<OTPScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 30,
+        centerTitle: true,
+        title: Text(
+          'OTP',
+          style: TextStyle(
+            color: const Color.fromRGBO(0, 0, 0, 1),
+            fontSize: 28,
+            fontWeight: FontWeight.w500,
+            fontFamily: GoogleFonts.outfit().fontFamily,
+            letterSpacing: 6,
+          ),
+        ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Row(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 48,
+              bottom: 24,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'OTP',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontFamily: GoogleFonts.outfit().fontFamily,
-                  ),
+                Image.asset(
+                  'assets/otp.png',
+                  width: 250,
                 ),
               ],
-            )
-          ],
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vote_vault/views/forms/registration.dart';
+import 'package:vote_vault/views/forms/otp_screen.dart';
+// import 'package:vote_vault/views/forms/registration.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,7 +13,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RegistrationForm(),
+      home: OTPScreen(),
     );
   }
 }
