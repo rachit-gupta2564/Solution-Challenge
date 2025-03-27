@@ -55,17 +55,17 @@ class _RegistrationFormState extends State<RegistrationForm> {
   DateTime? _selectedDate;
   int? _age;
   Future<void> _selectDate() async {
-    DateTime? _picked = await showDatePicker(
+    DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
     );
 
-    if (_picked != null) {
+    if (picked != null) {
       setState(() {
-        _dateController.text = _picked.toString().split(" ")[0];
-        _selectedDate = _picked;
+        _dateController.text = picked.toString().split(" ")[0];
+        _selectedDate = picked;
         _calculateAge();
       });
     }

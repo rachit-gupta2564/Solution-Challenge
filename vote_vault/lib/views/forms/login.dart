@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vote_vault/views/forms/otp_screen.dart';
+import 'package:vote_vault/views/home_page.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -61,7 +62,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF00a878),
+                    color: const Color(0xFF1f487e),
                     fontFamily: GoogleFonts.outfit().fontFamily,
                   ),
                 ),
@@ -201,7 +202,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 'Login using Voter ID',
                 style: TextStyle(
                   fontSize: 18,
-                  color: const Color(0xFF00a878),
+                  color: const Color(0xFF1f487e),
                   fontFamily: GoogleFonts.outfit().fontFamily,
                   fontWeight: FontWeight.w600,
                 ),
@@ -225,7 +226,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               vertical: 20,
             ),
             decoration: BoxDecoration(
-                color: const Color(0xFF00a878),
+                color: const Color(0xFF407aff),
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
                   color: const Color.fromARGB(255, 255, 255, 255),
@@ -233,7 +234,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF00a878),
+                    color: const Color.fromARGB(255, 0, 168, 168),
                     blurRadius: 10,
                     offset: Offset(0, 0),
                     spreadRadius: 2,
@@ -258,7 +259,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
-                    fillColor: const Color.fromARGB(111, 103, 241, 202),
+                    fillColor: const Color.fromARGB(150, 41, 221, 245),
                   ),
                 ),
                 SizedBox(
@@ -282,7 +283,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
-                    fillColor: const Color.fromARGB(111, 103, 241, 202),
+                    fillColor: const Color.fromARGB(150, 41, 221, 245),
                     suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
@@ -313,11 +314,19 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       ? _validate = true
                       : _validate = false;
                 });
+                if (!_validate) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ),
+                  );
+                }
               },
               style: ButtonStyle(
                 elevation: WidgetStateProperty.all<double>(4),
                 backgroundColor: WidgetStateProperty.all<Color>(
-                  const Color(0xFF00a878),
+                  const Color.fromARGB(255, 65, 122, 255),
                 ),
                 foregroundColor: WidgetStateProperty.all<Color>(
                   Colors.white,
@@ -337,6 +346,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               child: Text(
                 'Login',
                 style: TextStyle(
+                  fontSize: 18,
                   fontFamily: GoogleFonts.outfit().fontFamily,
                   fontWeight: FontWeight.w600,
                 ),
@@ -362,7 +372,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 'Login using Phone Number',
                 style: TextStyle(
                   fontSize: 18,
-                  color: const Color(0xFF00a878),
+                  color: const Color(0xFF1f487e),
                   fontFamily: GoogleFonts.outfit().fontFamily,
                   fontWeight: FontWeight.w600,
                 ),
@@ -387,7 +397,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 borderRadius: BorderRadius.circular(30),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF00a878),
+                    color: const Color.fromARGB(255, 0, 168, 168),
                     blurRadius: 10,
                     offset: Offset(0, 0),
                     spreadRadius: 2,
@@ -396,7 +406,11 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
             child: Column(
               children: [
                 TextField(
+                  cursorColor: Color.fromARGB(255, 255, 255, 255),
                   controller: _phone,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                     hintText: 'Phone Number',
@@ -421,7 +435,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
-                    fillColor: const Color(0xFF00a878),
+                    fillColor: const Color.fromARGB(149, 19, 139, 238),
                   ),
                 ),
               ],
@@ -448,7 +462,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => OTPScreen(),
+                          builder: (context) => OTPScreen(
+                            phone: _phone.text,
+                          ),
                         ),
                       );
                     }
@@ -456,7 +472,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   style: ButtonStyle(
                     elevation: WidgetStateProperty.all<double>(4),
                     backgroundColor: WidgetStateProperty.all<Color>(
-                      const Color(0xFF00a878),
+                      const Color.fromARGB(255, 65, 122, 255),
                     ),
                     foregroundColor: WidgetStateProperty.all<Color>(
                       Colors.white,

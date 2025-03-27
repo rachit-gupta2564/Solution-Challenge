@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vote_vault/views/forms/otp_screen.dart';
+import 'package:vote_vault/views/forms/login.dart'; 
+// import 'package:vote_vault/views/forms/login.dart';
+// import 'package:vote_vault/views/forms/otp_screen.dart';
 // import 'package:vote_vault/views/forms/registration.dart';
 
 void main() {
@@ -11,9 +13,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OTPScreen(),
+      theme: ThemeData(
+        primaryColor: Color.fromARGB(255, 32, 100, 247),
+        useMaterial3: true,
+        fontFamily: 'Outfit',
+      ),
+      home: Login(),
     );
   }
 }

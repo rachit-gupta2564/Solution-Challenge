@@ -1,0 +1,2 @@
+C:/Users/shubh/Documents/Solution-Challenge/vote_vault/android/app/.cxx/Debug/1x1e131f/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/shubh/Documents/Solution-Challenge/vote_vault/android/app/.cxx/Debug/1x1e131f/armeabi-v7a/CMakeFiles/rebuild_cache.dir
