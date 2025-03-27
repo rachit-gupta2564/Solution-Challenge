@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vote_vault/views/forms/otp_screen.dart';
+import 'package:vote_vault/views/forms/registration.dart';
 import 'package:vote_vault/views/home_page.dart';
 
 class Login extends StatefulWidget {
@@ -333,7 +335,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 ),
                 padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
                   EdgeInsets.symmetric(
-                    horizontal: 40,
+                    horizontal: 100,
                     vertical: 10,
                   ),
                 ),
@@ -353,7 +355,42 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               ),
             ),
           ],
-        )
+        ),
+        SizedBox(
+          height: 4,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Not a User?',
+              style: TextStyle(
+                fontFamily: GoogleFonts.outfit().fontFamily,
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => RegistrationForm()));
+              },
+              style: ButtonStyle(
+                padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                  EdgeInsets.zero,
+                ),
+              ),
+              child: Text(
+                'Register',
+                style: TextStyle(
+                  fontFamily: GoogleFonts.outfit().fontFamily,
+                  color: Color(0xFF427aff),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            )
+          ],
+        ),
       ],
     );
   }
@@ -450,7 +487,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 80),
                 child: ElevatedButton(
                   onPressed: () {
                     setState(() {
@@ -479,7 +516,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     ),
                     padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
                       EdgeInsets.symmetric(
-                        horizontal: 40,
+                        horizontal: 10,
                         vertical: 10,
                       ),
                     ),
@@ -492,7 +529,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   child: Text(
                     'Request OTP',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 16,
                       fontFamily: GoogleFonts.outfit().fontFamily,
                       fontWeight: FontWeight.w600,
                     ),
@@ -501,7 +538,42 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               ),
             ),
           ],
-        )
+        ),
+        SizedBox(
+          height: 4,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Not a User?',
+              style: TextStyle(
+                fontFamily: GoogleFonts.outfit().fontFamily,
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => RegistrationForm()));
+              },
+              style: ButtonStyle(
+                padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                  EdgeInsets.zero,
+                ),
+              ),
+              child: Text(
+                'Register',
+                style: TextStyle(
+                  fontFamily: GoogleFonts.outfit().fontFamily,
+                  color: Color(0xFF427aff),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            )
+          ],
+        ),
       ],
     );
   }

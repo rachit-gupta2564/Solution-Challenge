@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:vote_vault/views/forms/login.dart';
+import 'package:vote_vault/views/home_page.dart';
 // import 'package:vote_vault/views/screens/home_screen.dart';
 
 class RegistrationForm extends StatefulWidget {
@@ -15,6 +15,11 @@ class RegistrationForm extends StatefulWidget {
 }
 
 class _RegistrationFormState extends State<RegistrationForm> {
+  Color field = const Color.fromARGB(150, 41, 221, 245);
+  Color title = const Color(0xFF1f487e);
+  Color btn = const Color.fromARGB(255, 65, 122, 255);
+  Color shadow = const Color.fromARGB(255, 6, 164, 236);
+  Color bigBox = const Color(0xFF407aff);
   final _formKey = GlobalKey<FormState>();
 
   String? _selectedValue;
@@ -50,7 +55,23 @@ class _RegistrationFormState extends State<RegistrationForm> {
   ];
 
   bool _isPasswordVisible = false;
-  final TextEditingController _passwordController = TextEditingController();
+  bool _isConPasswordVisible = false;
+  late TextEditingController _passwordController;
+  late TextEditingController _conpasswordController;
+
+  @override
+  void initState() {
+    _passwordController = TextEditingController();
+    _conpasswordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _passwordController.dispose();
+    _conpasswordController.dispose();
+    super.dispose();
+  }
 
   DateTime? _selectedDate;
   int? _age;
@@ -116,7 +137,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                       fontFamily: GoogleFonts.outfit().fontFamily,
-                      color: const Color(0xFF00a878),
+                      color: title,
                     ),
                   ),
                 ),
@@ -129,22 +150,21 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     width: 500,
                     // height: 630,
                     decoration: BoxDecoration(
-                      color: Color(0xFF00a878),
+                      color: bigBox,
                       borderRadius: BorderRadius.circular(30),
+                      border: Border.all(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        width: 2,
+                      ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFF00a878),
-                          blurRadius: 30,
+                          color: shadow,
+                          blurRadius: 36,
                         )
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 20,
-                        bottom: 20,
-                        left: 20,
-                        right: 20,
-                      ),
+                      padding: const EdgeInsets.all(20),
                       child: Column(
                         children: [
                           TextFormField(
@@ -444,6 +464,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                   });
                                 },
                                 icon: Icon(
+                                  color: Colors.white,
                                   _isPasswordVisible
                                       ? Iconsax.eye_slash
                                       : Iconsax.eye,
@@ -455,7 +476,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             height: 12,
                           ),
                           TextFormField(
-                            obscureText: !_isPasswordVisible,
+                            controller: _conpasswordController,
+                            obscureText: !_isConPasswordVisible,
                             validator: (String? value) {
                               if (value == null || value.isEmpty) {
                                 return "Please enter a value";
@@ -483,13 +505,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                   const Color.fromARGB(111, 103, 241, 202),
                               filled: true,
                               suffixIcon: IconButton(
+                                color: Colors.white,
                                 onPressed: () {
                                   setState(() {
-                                    _isPasswordVisible = !_isPasswordVisible;
+                                    _isConPasswordVisible =
+                                        !_isConPasswordVisible;
                                   });
                                 },
                                 icon: Icon(
-                                  _isPasswordVisible
+                                  _isConPasswordVisible
                                       ? Iconsax.eye_slash
                                       : Iconsax.eye,
                                 ),
@@ -508,7 +532,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       elevation: 5,
-                      backgroundColor: const Color.fromARGB(255, 0, 168, 120),
+                      backgroundColor: btn,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 50,
                         vertical: 10,
@@ -521,12 +545,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         Navigator.push(context,
-                            CupertinoPageRoute(builder: (context) => Login()));
+                            CupertinoPageRoute(builder: (context) => HomePage()));
                       }
-                      // Navigator.push(
-                      //     context,
-                      //     CupertinoPageRoute(
-                      //         builder: (context) => HomeScreen()));
                     },
                     child: Text(
                       'Submit',
