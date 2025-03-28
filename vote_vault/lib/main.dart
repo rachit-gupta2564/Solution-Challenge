@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vote_vault/views/forms/login.dart'; 
+// import 'package:vote_vault/views/forms/login.dart';
+import 'package:vote_vault/views/home_page.dart'; 
 // import 'package:vote_vault/views/forms/login.dart';
 // import 'package:vote_vault/views/forms/otp_screen.dart';
 // import 'package:vote_vault/views/forms/registration.dart';
@@ -20,7 +21,7 @@ class MainApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Outfit',
       ),
-      home: Login(),
+      home: HomePage(),
     );
   }
 }
