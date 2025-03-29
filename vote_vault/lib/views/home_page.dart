@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vote_vault/views/qr_code_section.dart';
@@ -10,7 +11,8 @@ class HomePage extends StatelessWidget {
 
   // Function to open Google Maps with polling booth location
   Future<void> _launchMapsUrl(String url) async {
-    if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(Uri.parse(url),
+        mode: LaunchMode.externalApplication)) {
       throw 'Could not open the map.';
     }
   }
@@ -18,6 +20,26 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.menu_close,
+        backgroundColor: const Color(0xFFd0e2f7),
+        overlayColor: const Color(0xFFd0e2f7),
+        overlayOpacity: 0.4,
+        children: [
+          SpeedDialChild(
+            child: Icon(Iconsax.personalcard5),
+            label: 'Profile',
+            shape: CircleBorder(),
+            // onTap: () => ,
+          ),
+          SpeedDialChild(
+            child: Icon(Icons.help),
+            label: 'Help',
+            shape: CircleBorder(),
+            // onTap: () => ,
+          ),
+        ],
+      ),
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -55,9 +77,17 @@ class HomePage extends StatelessWidget {
         leading: Icon(Icons.check_circle, color: Colors.green, size: 32),
         title: Text(
           'Voting Status',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: GoogleFonts.outfit().fontFamily),
+          style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              fontFamily: GoogleFonts.outfit().fontFamily),
         ),
-        subtitle: Text('Verified and ready to vote', style: TextStyle(fontFamily: GoogleFonts.outfit().fontFamily,),),
+        subtitle: Text(
+          'Verified and ready to vote',
+          style: TextStyle(
+            fontFamily: GoogleFonts.outfit().fontFamily,
+          ),
+        ),
       ),
     );
   }
@@ -69,17 +99,25 @@ class HomePage extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Column(
         children: [
-           ListTile(
+          ListTile(
             leading: Icon(Icons.event, color: Colors.blue, size: 32),
             title: Text(
               'Upcoming Elections',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: GoogleFonts.outfit().fontFamily),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: GoogleFonts.outfit().fontFamily),
             ),
-            subtitle: Text('State Assembly Elections - April 2025', style: TextStyle(fontFamily: GoogleFonts.outfit().fontFamily),),
+            subtitle: Text(
+              'State Assembly Elections - April 2025',
+              style: TextStyle(fontFamily: GoogleFonts.outfit().fontFamily),
+            ),
           ),
           // Show on Map Button
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0,),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12.0,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -87,10 +125,17 @@ class HomePage extends StatelessWidget {
                   onPressed: () => _launchMapsUrl(
                     'https://www.google.com/maps/place/XYZ+Public+School,+New+Delhi',
                   ),
-                  icon: const Icon(Iconsax.map5, color: Colors.white, size: 20,),
+                  icon: const Icon(
+                    Iconsax.map5,
+                    color: Colors.white,
+                    size: 20,
+                  ),
                   label: Text(
                     'Show on Map',
-                    style: TextStyle(color: Colors.white, fontFamily: GoogleFonts.outfit().fontFamily, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: GoogleFonts.outfit().fontFamily,
+                        fontWeight: FontWeight.bold),
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue.shade700,
